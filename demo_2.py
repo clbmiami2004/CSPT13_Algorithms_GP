@@ -79,8 +79,23 @@ def naive_fill_knapsack(sack, items):
         Put highest value items in knapsack until full
     '''
     # TODO - sort items by value
+    items.sort(key = lambda i: i.value, reverse = True)
+    
+    weight = 0
 
     # TODO - put most valuable items in knapsack until full
+    # Loop over all items
+    for i in items:
+        # increment the weight by the item's weight
+        weight += i.weight
+        # if wieght is greater than 15
+        if weight > 15:
+            # return the sack
+            return sack
+        # otherswise 
+        else:
+            # we append it to the sack
+            sack.append(i)
 
     return sack
 
